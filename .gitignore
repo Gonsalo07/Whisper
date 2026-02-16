@@ -1,0 +1,45 @@
+# --- Gradle & Build ---
+.gradle/
+build/
+bin/
+gen/
+out/
+.externalNativeBuild/
+.cxx/
+captures/
+
+# --- Kotlin/Java ---
+*.class
+*.pyc
+
+# --- Android Studio / IntelliJ ---
+.idea/
+*.iml
+*.iws
+*.ipr
+# Excluir solo archivos específicos de idea si prefieres guardar la configuración compartida:
+# .idea/workspace.xml
+# .idea/libraries/
+# .idea/modules.xml
+
+# --- Local Configuration (SENSITIVE) ---
+local.properties
+.env
+.env.*
+
+# --- Keystores & Secrets ---
+# Mantén esto siempre activo para no subir tus llaves de firma
+*.jks
+*.keystore
+*.p12
+*.key
+*.pem
+google-services.json
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
