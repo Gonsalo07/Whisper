@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Whysper-app</string>
+
+    <!--STRINGS PARA TEXTO QUE VA EN CAMPOS, BUTTONS Y TEXTVIEWS-->
+    <string name="publicar">Publicar</string>
+    <string name="publicaciones">Publicaciones</string>
+    <string name="myprofile">My Profile</string>
+
+
+    <!--STRINGS PARA HINTS QUE VAN EN CAMPOS DE FORMS-->
+    <string name="busqueda">Search</string>
+
+    <!--STRINGS PARA VALIDACIONES DE CAMPOS-->
+
+
 </resources>

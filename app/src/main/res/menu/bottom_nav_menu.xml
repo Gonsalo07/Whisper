@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_publicaciones"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="@string/publicaciones" />
+    <item
+        android:id="@+id/nav_publicar"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/publicar" />
+    <item
+        android:id="@+id/nav_perfil"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/myprofile" />
+</menu>
