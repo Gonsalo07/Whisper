@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Whysperapp">
         <activity
+            android:name=".view.activity.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
