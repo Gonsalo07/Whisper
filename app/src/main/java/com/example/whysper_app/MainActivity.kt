@@ -1,34 +1,27 @@
 package com.example.whysper_app
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.whysper_app.view.activity.LoginActivity
 
 class MainActivity : AppCompatActivity() {
-
-
+    private lateinit var btnWelcomeApp : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        setContentView(R.layout.activity_welcome)
+        setContentView(R.layout.activity_main)
 
-        /*val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        btnWelcomeApp = findViewById(R.id.btnWelcomeApp)
 
-        bottomNavigation.setOnItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.nav_publicaciones -> {
-                    true
-                }
-                R.id.nav_publicar -> {
-                    true
-                }
-                R.id.nav_perfil -> {
-                    true
-                }
-                else -> false
-            }
-        }*/
+        btnWelcomeApp.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 
