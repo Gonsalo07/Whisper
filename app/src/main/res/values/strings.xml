@@ -4,13 +4,16 @@
     <!--STRINGS PARA TEXTO QUE VA EN CAMPOS, BUTTONS Y TEXTVIEWS-->
     <string name="publicar">Publicar</string>
     <string name="publicaciones">Publicaciones</string>
-    <string name="myprofile">My Profile</string>
+    <string name="myprofile">Mi Perfil</string>
 
 
     <!--STRINGS PARA HINTS QUE VAN EN CAMPOS DE FORMS-->
     <string name="busqueda">Search</string>
 
     <!--STRINGS PARA VALIDACIONES DE CAMPOS-->
+
+
+    <string name="terminos_condiciones_title_1">Aplicación “Whisper”</string>
 
 
 </resources>

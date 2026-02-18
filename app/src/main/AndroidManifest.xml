@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Whysperapp">
         <activity
+            android:name=".view.activity.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.TerminosCondicionesActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.RegisterActivity"
             android:exported="false" />
         <activity
