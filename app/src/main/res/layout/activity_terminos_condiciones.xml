@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="150dp">
+
+            <ImageButton
+                android:id="@+id/btnTerminosRegresar"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icon_back"/>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="Terminos y condiciones de Whysper"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Última actualización: [Colocar fecha]"/>
+
+            <TextView
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bienvenido a Whisper, una aplicación digital de reporte de incidencias urbanas operada por un grupo independiente de desarrolladores en la República del Perú."/>
+
+
+            <TextView
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El acceso y uso de la aplicación implica la aceptación plena de los presentes Términos y Condiciones."/>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="1. Naturaleza del Servicio"/>
+
+            <TextView
+                android:paddingStart="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Whisper es una plataforma digital intermediaria que permite a los usuarios reportar incidencias urbanas mediante la publicación de información, imágenes, videos, documentos y otros archivos."
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• No es una entidad pública."/>
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• No representa a municipalidades ni autoridades."/>
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• No gestiona denuncias formales."/>
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Actúa únicamente como intermediario tecnológico."/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="2. Requisitos de Registro"/>
+
+            <TextView
+                android:paddingStart="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para utilizar la plataforma es obligatorio:"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Ser mayor de 18 años."/>
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Proporcionar:"/>
+
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• DNI válido"/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Correo electrónico"/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Contraseña"/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Alias público"/>
+
+            <TextView
+                android:paddingStart="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• El DNI:"/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Es obligatorio."/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Será validado contra bases oficiales."/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• No será visible públicamente."/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Solo el alias será visible a otros usuarios."/>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="3. Uso del DNI y Control de Conducta"/>
+
+            <TextView
+                android:paddingStart="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El DNI es solicitado exclusivamente para:"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Verificación de identidad."/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Prevención de suplantación."/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Investigación de posibles actos de difamación."/>
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Investigación de uso indebido de la plataforma."/>
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Entrega de información a autoridades competentes cuando corresponda conforme a la ley peruana."/>
+
+
+            <TextView
+                android:paddingStart="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En caso de denuncia por difamación u otro uso indebido:"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Se realizará una investigación interna."/>
+
+            <TextView
+                android:paddingStart="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Si la gravedad lo amerita, se podrá proporcionar la información del usuario a autoridades competentes conforme a la legislación vigente"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="4. Publicación de Contenido"/>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

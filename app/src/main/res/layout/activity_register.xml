@@ -63,17 +63,11 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="Escribe un alias o generalo pulsando el botón"
+                    android:hint="Escribe un alias navegar con seguridad"
                     android:textSize="14sp"
                     android:layout_weight="1"/>
 
-                <ImageButton
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/icon_ramdon_alias"/>
-
             </LinearLayout>
-
         </LinearLayout>
 
 
@@ -189,11 +183,36 @@
             </LinearLayout>
         </LinearLayout>
 
-        <CheckBox
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aceptar terminos y condiciones" />
+            android:layout_gravity="center_vertical" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aceptar terminos y condiciones" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvTerminoCondiciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leer"
+                android:textAlignment="viewEnd"
+                android:textStyle="bold"
+                android:textColor="#0C946E"
+                android:paddingEnd="10dp"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+
 
         <Button
             android:layout_width="match_parent"

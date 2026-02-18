@@ -104,7 +104,8 @@
                     android:inputType="textPassword"
                     android:hint="Ingresa tu contraseña"/>
 
-                <ImageView
+                <ImageButton
+                    android:id="@+id/btnLoginShowPass"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:background="@drawable/icon_eye"/>
