@@ -76,9 +76,7 @@ data class UsuarioRef(val id: Long)
 data class AliasRef(val id: Long)
 data class CategoriaRef(val id: Long)
 
-// ═══════════════════════════════════════════════════════════════════
-// EVIDENCIA
-// ═══════════════════════════════════════════════════════════════════
+
 data class Evidencia(
     val id: Long? = null,
     val denunciaId: DenunciaRef,
