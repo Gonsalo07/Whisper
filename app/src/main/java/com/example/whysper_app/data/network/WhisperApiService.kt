@@ -8,27 +8,21 @@ import retrofit2.http.*
 
 interface WhisperApiService {
 
-    // ═══════════════════════════════════════════════════════════════════
-    // CATEGORÍAS
-    // ═══════════════════════════════════════════════════════════════════
+
     @GET("api/categorias/dropdown")
     fun obtenerCategoriasDropdown(): Call<List<CategoriaDropdown>>
 
     @GET("api/categorias")
     fun obtenerCategorias(): Call<List<Categoria>>
 
-    // ═══════════════════════════════════════════════════════════════════
-    // ALIAS PÚBLICOS
-    // ═══════════════════════════════════════════════════════════════════
+
     @GET("api/alias/dropdown")
     fun obtenerAliasDropdown(): Call<List<AliasDropdown>>
 
     @GET("api/alias")
     fun obtenerAlias(): Call<List<AliasPublico>>
 
-    // ═══════════════════════════════════════════════════════════════════
-    // DENUNCIAS
-    // ═══════════════════════════════════════════════════════════════════
+
     @GET("api/denuncia")
     fun obtenerDenuncias(): Call<List<Denuncia>>
 
@@ -47,18 +41,20 @@ interface WhisperApiService {
     @DELETE("api/denuncia/{id}")
     fun eliminarDenuncia(@Path("id") id: Long): Call<Void>
 
-    // ═══════════════════════════════════════════════════════════════════
-    // EVIDENCIAS
-    // ═══════════════════════════════════════════════════════════════════
-    @POST("api/evidencia")
-    fun crearEvidencia(@Body evidencia: EvidenciaRequest): Call<Evidencia>
 
-    @GET("api/evidencia")
-    fun obtenerEvidencias(): Call<List<Evidencia>>
+    @Multipart
+    @POST("api/evidencia/upload/{denunciaId}")
+    fun subirEvidencia(
+        @Path("denunciaId") denunciaId: Long,
+        @Part file: MultipartBody.Part
+    ): Call<Evidencia>
 
-    // ═══════════════════════════════════════════════════════════════════
-    // USUARIOS (para login futuro)
-    // ═══════════════════════════════════════════════════════════════════
+    @GET("api/evidencia/por-denuncia/{id}")
+    fun obtenerEvidenciasPorDenuncia(
+        @Path("id") id: Long
+    ): Call<List<Evidencia>>
+
+
     @POST("api/usuarios")
     fun registrarUsuario(@Body usuario: Usuario): Call<Usuario>
 

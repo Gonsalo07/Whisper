@@ -12,6 +12,9 @@ import com.bumptech.glide.Glide
 import com.example.whysper_app.R
 import com.example.whysper_app.data.model.*
 import com.example.whysper_app.data.network.ApiClient
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -175,18 +178,8 @@ class CrearDenunciaActivity : AppCompatActivity() {
         val descripcion = etDescripcion.text.toString().trim()
         val ubicacion = etUbicacion.text.toString().trim()
 
-        if (titulo.isEmpty()) {
-            etTitulo.error = "Ingrese un título"
-            return
-        }
-
-        if (descripcion.isEmpty()) {
-            etDescripcion.error = "Ingrese una descripción"
-            return
-        }
-
-        if (ubicacion.isEmpty()) {
-            etUbicacion.error = "Ingrese la ubicación"
+        if (titulo.isEmpty() || descripcion.isEmpty() || ubicacion.isEmpty()) {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -201,7 +194,7 @@ class CrearDenunciaActivity : AppCompatActivity() {
             categoriaId = CategoriaRef(categoriaSeleccionadaId!!),
             titulo = titulo,
             descripcion = descripcion,
-            ubicacion = ubicacion   // 🔥 nuevo campo
+            ubicacion = ubicacion
         )
 
         btnPublicar.isEnabled = false
@@ -216,45 +209,65 @@ class CrearDenunciaActivity : AppCompatActivity() {
 
                         val denunciaCreada = response.body()
 
-                        archivoUri?.let { uri ->
-
-                            val evidenciaRequest = EvidenciaRequest(
-                                denunciaId = DenunciaRef(denunciaCreada!!.id!!),
-                                url = uri.toString(),
-                                tipo = tipoArchivo ?: "DOCUMENTO"
-                            )
-
-                            ApiClient.apiService.crearEvidencia(evidenciaRequest)
-                                .enqueue(object : Callback<Evidencia> {
-                                    override fun onResponse(call: Call<Evidencia>, response: Response<Evidencia>) {
-                                        Log.d("CrearDenuncia", "Evidencia guardada")
-                                    }
-
-                                    override fun onFailure(call: Call<Evidencia>, t: Throwable) {
-                                        Log.e("CrearDenuncia", "Error evidencia: ${t.message}")
-                                    }
-                                })
+                        if (archivoUri != null && denunciaCreada != null) {
+                            subirArchivo(denunciaCreada.id!!, archivoUri!!)
+                        } else {
+                            finalizarPublicacion()
                         }
 
-                        Toast.makeText(
-                            this@CrearDenunciaActivity,
-                            "Denuncia publicada correctamente",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        finish()
                     } else {
-                        btnPublicar.isEnabled = true
-                        btnPublicar.text = "Publicar Denuncia"
-                        Toast.makeText(this@CrearDenunciaActivity, "Error al publicar", Toast.LENGTH_SHORT).show()
+                        errorPublicacion()
                     }
                 }
 
                 override fun onFailure(call: Call<Denuncia>, t: Throwable) {
-                    btnPublicar.isEnabled = true
-                    btnPublicar.text = "Publicar Denuncia"
-                    Toast.makeText(this@CrearDenunciaActivity, "Error de conexión", Toast.LENGTH_LONG).show()
+                    errorPublicacion()
                 }
             })
+    }
+
+    private fun subirArchivo(denunciaId: Long, uri: Uri) {
+
+        val inputStream = contentResolver.openInputStream(uri)
+        val bytes = inputStream?.readBytes() ?: return
+
+        val mimeType = contentResolver.getType(uri) ?: "application/octet-stream"
+
+        val requestFile = bytes.toRequestBody(
+            mimeType.toMediaTypeOrNull()
+        )
+
+        val body = MultipartBody.Part.createFormData(
+            "file",
+            "archivo",
+            requestFile
+        )
+
+        ApiClient.apiService.subirEvidencia(denunciaId, body)
+            .enqueue(object : Callback<Evidencia> {
+
+                override fun onResponse(call: Call<Evidencia>, response: Response<Evidencia>) {
+                    finalizarPublicacion()
+                }
+
+                override fun onFailure(call: Call<Evidencia>, t: Throwable) {
+                    Toast.makeText(
+                        this@CrearDenunciaActivity,
+                        "Error subiendo archivo",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    finalizarPublicacion()
+                }
+            })
+    }
+    private fun finalizarPublicacion() {
+        Toast.makeText(this, "Denuncia publicada correctamente", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+
+    private fun errorPublicacion() {
+        btnPublicar.isEnabled = true
+        btnPublicar.text = "Publicar Denuncia"
+        Toast.makeText(this, "Error al publicar", Toast.LENGTH_SHORT).show()
     }
 }
