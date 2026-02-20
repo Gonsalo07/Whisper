@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1e9f8"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icon_back"
+                android:contentDescription="Regresar" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nueva Denuncia"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:paddingStart="15dp" />
+        </LinearLayout>
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Título"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#575757"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/etTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Ej: Bache peligroso en Av. Principal"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Categoría -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categoría"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#575757"
+            android:layout_marginBottom="5dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Descripción -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#575757"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/etDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Describe la incidencia detalladamente..."
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Ubicación (Opcional) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubicación (Opcional)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#575757"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/etUbicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese la ubicación"
+            android:inputType="textCapSentences"/>
+
+        <!-- Evidencia (Opcional) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Evidencia (Opcional)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#575757"
+            android:layout_marginBottom="5dp"/>
+
+        <Button
+            android:id="@+id/btnSeleccionarArchivo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Seleccionar Archivo (Foto/Video/Documento)"
+            android:textSize="13sp"
+            android:backgroundTint="#9575CD"
+            app:cornerRadius="8dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Preview del archivo seleccionado -->
+        <LinearLayout
+            android:id="@+id/layoutArchivoSeleccionado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivPreview"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:background="#E0E0E0"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp">
+
+                    <TextView
+                        android:id="@+id/tvNombreArchivo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="archivo.jpg"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvTipoArchivo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tipo: IMAGEN"
+                        android:textSize="12sp"
+                        android:textColor="#757575"/>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnEliminarArchivo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#F44336"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botón Publicar -->
+        <Button
+            android:id="@+id/btnPublicar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Publicar Denuncia"
+            android:textSize="18sp"
+            android:backgroundTint="@color/primary_color"
+            app:cornerRadius="10dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+</ScrollView>
