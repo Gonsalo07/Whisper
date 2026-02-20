@@ -11,8 +11,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.whysper_app.R
 
 class WelcomeActivity : AppCompatActivity() {
-
     private lateinit var btnWelcomeApp : ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)

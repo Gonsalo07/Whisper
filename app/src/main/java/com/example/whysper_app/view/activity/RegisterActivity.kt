@@ -186,7 +186,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val grupo = db.batch()
         val userRef = db.collection("usuarios").document(uid)
-        val aliasRef = db.collection("alias_publicos").document()
+            val aliasRef = db.collection("alias_publicos").document()
 
         grupo.set(userRef, datosUsuario)
         grupo.set(aliasRef, datosAlias)
