@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:paddingHorizontal="10sp"
-        android:text="Nueva Cuenta"
+        android:text="@string/nueva_cuenta"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_background_login"
@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alias:"
+                android:text="@string/alias_text"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#575757"/>
@@ -61,17 +61,15 @@
                     android:background="@drawable/icon_user"/>
 
                 <EditText
+                    android:id="@+id/etAlias"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="Escribe un alias navegar con seguridad"
+                    android:hint="@string/alias_hint"
                     android:textSize="14sp"
                     android:layout_weight="1"/>
 
             </LinearLayout>
         </LinearLayout>
-
-
-
 
         <LinearLayout
             android:orientation="vertical"
@@ -82,7 +80,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email:"
+                android:text="@string/email_text"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#575757"/>
@@ -99,12 +97,12 @@
                     android:background="@drawable/icon_email"/>
 
                 <EditText
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:inputType="textEmailAddress"
-                    android:hint="Ingresa tu correo electronico "/>
-
+                    android:hint="@string/email_hint"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -117,7 +115,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DNI:"
+                android:text="@string/dni_text"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#575757"/>
@@ -134,11 +132,12 @@
                     android:background="@drawable/icon_dni"/>
 
                 <EditText
+                    android:id="@+id/etDni"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:inputType="number"
-                    android:hint="Ingresa tu documento de identidad"/>
+                    android:hint="@string/dni_hint"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -151,7 +150,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contraseña:"
+                android:text="@string/contrasena_text"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#575757"/>
@@ -168,12 +167,13 @@
                     android:background="@drawable/icon_password"/>
 
                 <EditText
+                    android:id="@+id/etContrasena"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="14sp"
                     android:inputType="textPassword"
-                    android:hint="Ingresa tu contraseña"/>
+                    android:hint="@string/contrasena_hint"/>
 
                 <ImageView
                     android:layout_width="20dp"
@@ -190,9 +190,10 @@
             android:layout_gravity="center_vertical" >
 
             <CheckBox
+                android:id="@+id/cbTerminosCondiciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aceptar terminos y condiciones" />
+                android:text="@string/terminosycondiciones" />
 
             <Space
                 android:layout_width="0dp"
@@ -203,7 +204,7 @@
                 android:id="@+id/tvTerminoCondiciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Leer"
+                android:text="@string/leer"
                 android:textAlignment="viewEnd"
                 android:textStyle="bold"
                 android:textColor="#0C946E"
@@ -212,12 +213,11 @@
 
         </LinearLayout>
 
-
-
         <Button
+            android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Entrar"
+            android:text="@string/btnEntrar"
             android:textSize="20sp"
             android:backgroundTint="@color/primary_color"
             app:cornerRadius="10dp"/>
@@ -227,7 +227,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:backgroundTint="@android:color/transparent"
-            android:text="Ya tienes una cuenta? Iniciar Sesión"
+            android:text="@string/btnIrLogin"
             android:textColor="#232323"/>
 
     </LinearLayout>
