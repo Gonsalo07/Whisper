@@ -5,15 +5,40 @@
     <string name="publicar">Publicar</string>
     <string name="publicaciones">Publicaciones</string>
     <string name="myprofile">Mi Perfil</string>
-
+    <string name="nueva_cuenta">Nueva Cuenta</string>
+    <string name="alias_text">Alias:</string>
+    <string name="bienvenida">¡Bienvenido de nuevo!</string>
+    <string name="email_text">Email:</string>
+    <string name="dni_text">DNI:</string>
+    <string name="contrasena_text">Contraseña:</string>
+    <string name="terminosycondiciones">Aceptar terminos y condiciones</string>
+    <string name="leer">Leer</string>
+    <string name="btnEntrar">Entrar</string>
+    <string name="btnIrLogin">Ya tienes una cuenta? Iniciar Sesión</string>
+    <string name="btnIrRegistrar">No tienes una cuenta? Crea una</string>
 
     <!--STRINGS PARA HINTS QUE VAN EN CAMPOS DE FORMS-->
     <string name="busqueda">Search</string>
+    <string name="alias_hint">LaVozDeLaSociedad123</string>
+    <string name="email_hint">ejemplo@gmail.com</string>
+    <string name="dni_hint">12345678</string>
+    <string name="contrasena_hint">Ingresa tu contraseña</string>
 
     <!--STRINGS PARA VALIDACIONES DE CAMPOS-->
-
-
     <string name="terminos_condiciones_title_1">Aplicación “Whisper”</string>
-
-
+    <string name="completar_campos">Por favor, completa todos los campos</string>
+    <string name="validar_dni">El DNI debe tener 8 dígitos</string>
+    <string name="validar_contrasena">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="contra_error">Contraseña incorrecta</string>
+    <string name="acepta_tyc">Debes aceptar los términos y condiciones para continuar</string>
+    <string name="validar_alias">Registro exitoso</string>
+    <string name="dni_en_uso">El DNI ya está registrado</string>
+    <string name="dni_no_registrado">El DNI no está registrado</string>
+    <string name="dni_invalido">El DNI que ingresaste no es valido, vuelve a revisarlo</string>
+    <string name="alias_en_uso">El alias ya está en uso, elige otro"</string>
+    <string name="email_en_uso">El email ya está en uso, elige otro"</string>
+    <string name="error_validar_alias">Error al validar el alias</string>
+    <string name="error_validar_dni">Error al validar DNI</string>
+    <string name="error_conexion">Error de conexión con el servidor y/o Mysql</string>
+    <string name="registroexitoso">Registro exitoso</string>
 </resources>
