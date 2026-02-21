@@ -131,10 +131,14 @@
             android:text="@string/btnIrRegistrar"
             android:textColor="#232323"/>
 
+        <Button
+            android:id="@+id/btnProbarReporte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DEBUG: IR A REPORTE"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#757575"/>
+
     </LinearLayout>
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

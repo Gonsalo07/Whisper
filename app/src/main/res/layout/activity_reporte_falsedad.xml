@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reportar Denuncia Falsa"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Motivo del reporte:"/>
+
+    <Spinner
+        android:id="@+id/spinnerMotivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción detallada:"/>
+
+    <EditText
+        android:id="@+id/etDescripcionReporte"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Explica por qué consideras que es falsa..."
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnEnviarReporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENVIAR REPORTE"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#D32F2F"/>
+
+</LinearLayout>
