@@ -58,7 +58,31 @@ data class Denuncia(
     val estado: String = "EN_EVALUACION",
     @SerializedName("creadaEn")
     val creadaEn: String? = null
+)
 
+// ═══════════════════════════════════════════════════════════════════
+// REPORTE DE FALSEDAD
+// ═══════════════════════════════════════════════════════════════════
+
+// Modifica esta parte en tu archivo Usuario.kt
+data class ReporteFalsedad(
+    val id: Long? = null,
+
+    @SerializedName("denunciaId") // Debe coincidir con el nombre de la variable en Java
+    val denunciaId: DenunciaRef,
+
+    @SerializedName("usuarioId") // Debe coincidir con el nombre de la variable en Java
+    val usuarioId: UsuarioRef,
+
+    @SerializedName("motivo")
+    val motivo: String,
+
+    // Agregamos la descripción si la usas, aunque en tu Java no la veo (ojo aquí)
+    @SerializedName("descripcion")
+    val descripcion: String,
+
+    @SerializedName("estado")
+    val estado: String = "VISIBLE"
 )
 
 // Request para crear denuncia (sin el timestamp, lo pone el backend)

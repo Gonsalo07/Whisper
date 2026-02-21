@@ -54,6 +54,12 @@ interface WhisperApiService {
         @Path("id") id: Long
     ): Call<List<Evidencia>>
 
+    // REPORTES DE FALSEDAD (
+    @POST("api/reporte-falsedad")
+    fun crearReporteFalsedad(
+        @Body reporte: ReporteFalsedad
+    ): Call<ReporteFalsedad>
+
 
     @POST("api/usuarios")
     fun registrarUsuario(@Body usuario: Usuario): Call<Usuario>

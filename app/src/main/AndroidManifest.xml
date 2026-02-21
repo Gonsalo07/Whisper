@@ -56,6 +56,9 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".view.activity.ReporteFalsedadActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
