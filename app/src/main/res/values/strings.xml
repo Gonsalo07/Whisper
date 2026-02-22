@@ -48,4 +48,28 @@
     <string name="registroexitoso">Registro exitoso</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="error_conexion_2">Error de conexión</string>
+    <string name="tipo_archivo">Tipo: %1$s</string>
+
+    <string name="complete_campos">Complete todos los campos</string>
+    <string name="seleccione_categoria">Seleccione una categoría</string>
+
+    <string name="publicando">Publicando...</string>
+    <string name="publicar_denuncia">Publicar Denuncia</string>
+
+    <string name="error_subiendo_archivo">Error subiendo archivo</string>
+    <string name="denuncia_publicada">Denuncia publicada correctamente</string>
+    <string name="error_publicar">Error al publicar</string>
+
+    <string name="archivo_default">archivo</string>
+
+    <string name="tipo_imagen">IMAGEN</string>
+    <string name="tipo_video">VIDEO</string>
+    <string name="tipo_pdf">PDF</string>
+    <string name="tipo_documento">DOCUMENTO</string>
+
+
+
 </resources>
