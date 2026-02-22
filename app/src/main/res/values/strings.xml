@@ -46,4 +46,6 @@
     <string name="error_validar_dni">Error al validar DNI</string>
     <string name="error_conexion">Error de conexión con el servidor y/o Mysql</string>
     <string name="registroexitoso">Registro exitoso</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

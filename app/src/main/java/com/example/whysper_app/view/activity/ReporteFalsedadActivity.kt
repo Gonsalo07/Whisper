@@ -44,7 +44,6 @@ class ReporteFalsedadActivity : AppCompatActivity(){
                 motivo = motivoSeleccionado,
                 descripcion = descripcion
             )
-
             enviarReporteAlServidor(nuevoReporte)
         }
     }
