@@ -41,7 +41,6 @@ class CrearDenunciaFragment : Fragment() {
     private var archivoUri: Uri? = null
     private var tipoArchivo: String? = null
 
-    // TEMPORAL
     private val usuarioId: Long = 1
     private val aliasId: Long = 1
 
@@ -63,7 +62,6 @@ class CrearDenunciaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         inicializarVistas(view)
         configurarListeners()
         cargarCategorias()
@@ -85,6 +83,7 @@ class CrearDenunciaFragment : Fragment() {
     }
 
     private fun configurarListeners() {
+
         btnSeleccionarArchivo.setOnClickListener {
             seleccionarArchivoLauncher.launch("*/*")
         }
@@ -134,19 +133,20 @@ class CrearDenunciaFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<List<CategoriaDropdown>>, t: Throwable) {
-                    Toast.makeText(requireContext(), "Error de conexión", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), getString(R.string.error_conexion), Toast.LENGTH_LONG).show()
                 }
             })
     }
 
     private fun mostrarPreviewArchivo(uri: Uri) {
+
         val mimeType = requireContext().contentResolver.getType(uri)
 
         tipoArchivo = when {
-            mimeType?.startsWith("image/") == true -> "IMAGEN"
-            mimeType?.startsWith("video/") == true -> "VIDEO"
-            mimeType == "application/pdf" -> "PDF"
-            else -> "DOCUMENTO"
+            mimeType?.startsWith("image/") == true -> getString(R.string.tipo_imagen)
+            mimeType?.startsWith("video/") == true -> getString(R.string.tipo_video)
+            mimeType == "application/pdf" -> getString(R.string.tipo_pdf)
+            else -> getString(R.string.tipo_documento)
         }
 
         val cursor = requireContext().contentResolver.query(uri, null, null, null, null)
@@ -154,12 +154,12 @@ class CrearDenunciaFragment : Fragment() {
             val nameIndex = it.getColumnIndex(OpenableColumns.DISPLAY_NAME)
             it.moveToFirst()
             it.getString(nameIndex)
-        } ?: "archivo"
+        } ?: getString(R.string.archivo_default)
 
         tvNombreArchivo.text = nombreArchivo
-        tvTipoArchivo.text = "Tipo: $tipoArchivo"
+        tvTipoArchivo.text = getString(R.string.tipo_archivo, tipoArchivo)
 
-        if (tipoArchivo == "IMAGEN") {
+        if (tipoArchivo == getString(R.string.tipo_imagen)) {
             Glide.with(this)
                 .load(uri)
                 .centerCrop()
@@ -172,17 +172,18 @@ class CrearDenunciaFragment : Fragment() {
     }
 
     private fun publicarDenuncia() {
+
         val titulo = etTitulo.text.toString().trim()
         val descripcion = etDescripcion.text.toString().trim()
         val ubicacion = etUbicacion.text.toString().trim()
 
         if (titulo.isEmpty() || descripcion.isEmpty() || ubicacion.isEmpty()) {
-            Toast.makeText(requireContext(), "Complete todos los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.complete_campos), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (categoriaSeleccionadaId == null) {
-            Toast.makeText(requireContext(), "Seleccione una categoría", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.seleccione_categoria), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -196,7 +197,7 @@ class CrearDenunciaFragment : Fragment() {
         )
 
         btnPublicar.isEnabled = false
-        btnPublicar.text = "Publicando..."
+        btnPublicar.text = getString(R.string.publicando)
 
         ApiClient.apiService.crearDenuncia(denunciaRequest)
             .enqueue(object : Callback<Denuncia> {
@@ -222,6 +223,7 @@ class CrearDenunciaFragment : Fragment() {
     }
 
     private fun subirArchivo(denunciaId: Long, uri: Uri) {
+
         val inputStream = requireContext().contentResolver.openInputStream(uri)
         val bytes = inputStream?.readBytes() ?: return
 
@@ -238,16 +240,15 @@ class CrearDenunciaFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<Evidencia>, t: Throwable) {
-                    Toast.makeText(requireContext(), "Error subiendo archivo", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), getString(R.string.error_subiendo_archivo), Toast.LENGTH_LONG).show()
                     finalizarPublicacion()
                 }
             })
     }
 
     private fun finalizarPublicacion() {
-        Toast.makeText(requireContext(), "Denuncia publicada correctamente", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), getString(R.string.denuncia_publicada), Toast.LENGTH_SHORT).show()
 
-        // Limpiar formulario
         etTitulo.text.clear()
         etDescripcion.text.clear()
         etUbicacion.text.clear()
@@ -255,12 +256,12 @@ class CrearDenunciaFragment : Fragment() {
         layoutArchivoSeleccionado.visibility = View.GONE
 
         btnPublicar.isEnabled = true
-        btnPublicar.text = "Publicar Denuncia"
+        btnPublicar.text = getString(R.string.publicar_denuncia)
     }
 
     private fun errorPublicacion() {
         btnPublicar.isEnabled = true
-        btnPublicar.text = "Publicar Denuncia"
-        Toast.makeText(requireContext(), "Error al publicar", Toast.LENGTH_SHORT).show()
+        btnPublicar.text = getString(R.string.publicar_denuncia)
+        Toast.makeText(requireContext(), getString(R.string.error_publicar), Toast.LENGTH_SHORT).show()
     }
 }
