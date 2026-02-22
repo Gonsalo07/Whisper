@@ -57,7 +57,8 @@ data class Denuncia(
     val ubicacion: String,
     val estado: String = "EN_EVALUACION",
     @SerializedName("creadaEn")
-    val creadaEn: String? = null
+    val creadaEn: String,
+    val evidencias: List<Evidencia>
 )
 
 // ═══════════════════════════════════════════════════════════════════

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
-    android:layout_margin="10dp"
+    android:layout_margin="15dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
@@ -26,12 +26,27 @@
                 android:src="@drawable/icon_user_2"/>
 
             <TextView
+                android:id="@+id/tvCardAlias"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PancracioGolondrina#0001"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/imgButtonOption"
+                android:scaleType="fitXY"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#ffff"
+                android:src="@drawable/icon_option"
+                android:clickable="true"
+                android:focusable="true"/>
         </LinearLayout>
 
 
@@ -42,6 +57,7 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tvCardCategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
@@ -51,6 +67,7 @@
                 android:text="Infraestructura"/>
 
             <TextView
+                android:id="@+id/tvCardCreadaEn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13dp"
@@ -60,6 +77,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvCardTitulo"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,32 +86,15 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/tvCardDescripcion"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hay un huevo grande en la avenida principal de los angamos, porfavor si alguien podria venir a repararlo, obstruye demasiado el transito y congestiona a las motociletas cacheras de JAJAJA, cabro quien lea esto. solo todo ERICK"
             android:textSize="15sp"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/icon_location"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Av. Los Robles, Los Jasmines"
-                android:textSize="13sp"/>
-        </LinearLayout>
-
         <ImageView
+            android:id="@+id/ImgCardDenuncia"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="180dp"
@@ -101,6 +102,83 @@
             android:src="@drawable/img_reporte_bache"/>
 
         <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/icon_location"/>
+
+                <TextView
+                    android:id="@+id/tvCardDireccion"
+                    android:text=""
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/imgButtonLike"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/icon_like_empty"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/tvLikes"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/imgButtonComentario"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/icon_message"/>
+
+                <TextView
+                    android:id="@+id/tvComentarios"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12"/>
+            </LinearLayout>
+        </LinearLayout>
+
+<!--        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -132,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:text="Cuestionable"/>
 
-        </LinearLayout>
+        </LinearLayout>-->
 
     </LinearLayout>
 

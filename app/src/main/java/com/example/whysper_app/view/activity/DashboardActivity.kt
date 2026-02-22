@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.whysper_app.R
 import com.example.whysper_app.view.fragment.CrearDenunciaFragment
+import com.example.whysper_app.view.fragment.PublicacionesFragment
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -34,9 +35,5 @@ class DashboardActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
-
-
-
-
     }
 }
