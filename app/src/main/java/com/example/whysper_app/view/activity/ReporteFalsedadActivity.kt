@@ -23,9 +23,18 @@ class ReporteFalsedadActivity : AppCompatActivity(){
         val etDescripcion = findViewById<EditText>(R.id.etDescripcionReporte)
         val btnEnviar = findViewById<Button>(R.id.btnEnviarReporte)
 
+        val btnVolver = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnVolverMenuDenuncias)
+
+        btnVolver.setOnClickListener {
+            // Esto te regresa directo al Dashboard/Publicaciones
+            finish()
+        }
+
         // Configurar Spinner
         val motivos = arrayOf("Información falsa", "Spam", "Odio o acoso", "Foto engañosa", "Otro")
-        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, motivos)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, motivos)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
 
         btnEnviar.setOnClickListener {
             val motivoSeleccionado = spinner.selectedItem.toString()

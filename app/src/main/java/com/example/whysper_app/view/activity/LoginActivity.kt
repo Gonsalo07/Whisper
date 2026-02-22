@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btnLoginSend: Button
     private lateinit var btnGoToRegister: Button
     private lateinit var btnLoginShowPass: ImageButton
-    private lateinit var btnProbarReporte: Button
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
@@ -35,14 +34,6 @@ class LoginActivity : AppCompatActivity() {
         btnLoginSend = findViewById(R.id.btnLoginSend)
         btnGoToRegister = findViewById(R.id.btnGoToRegister)
         btnLoginShowPass = findViewById(R.id.btnLoginShowPass)
-        btnProbarReporte = findViewById(R.id.btnProbarReporte)
-
-        btnProbarReporte.setOnClickListener {
-            val intent = Intent(this, ReporteFalsedadActivity::class.java)
-            // Pasamos un ID de denuncia ficticio (ejemplo: 1) para que no truene la app
-            intent.putExtra("DENUNCIA_ID", 1L)
-            startActivity(intent)
-        }
 
         btnLoginSend.setOnClickListener {
             val dni = etLoginDni.text.toString().trim()
