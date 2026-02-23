@@ -71,7 +71,6 @@ interface WhisperApiService {
     fun obtenerUsuarioPorEmail(@Path("email") email: String): Call<Usuario>
 }
 
-// Objeto singleton para obtener el servicio
 object ApiClient {
     val apiService: WhisperApiService by lazy {
         RetrofitClient.instance.create(WhisperApiService::class.java)

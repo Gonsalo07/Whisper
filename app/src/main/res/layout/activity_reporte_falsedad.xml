@@ -12,7 +12,6 @@
         android:padding="24dp">
 
         <ImageButton
-
             android:id="@+id/btnVolverPublicaciones"
             android:layout_width="30dp"
             android:layout_height="30dp"

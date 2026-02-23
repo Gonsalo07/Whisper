@@ -24,5 +24,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-
-//https://www.figma.com/community/file/1300432160609727073

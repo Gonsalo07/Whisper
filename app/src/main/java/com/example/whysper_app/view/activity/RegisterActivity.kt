@@ -65,7 +65,6 @@ class RegisterActivity : AppCompatActivity() {
                 startActivity(intent)
         }
 
-        //SOLO SON VALIDACIONES SIMPLES
         btnRegistrar.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etContrasena.text.toString().trim()
@@ -91,7 +90,6 @@ class RegisterActivity : AppCompatActivity() {
             verificarDuplicadosYCrear(email, password, alias, dni)
         }
 
-        //DETALLE PARA QUE EL BOTON DE REGISTRAR SE ACTIVE CUANDO TODO EN EL FORMULARIO ESTE READY
         cbTerminos.setOnCheckedChangeListener { _, isChecked ->
             btnRegistrar.isEnabled = isChecked
 
@@ -102,20 +100,19 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
-    //AQUI SE VERIFICAN DUPLICACDOS EN LOS CAMPOS MEDIANTE EL FIREBASE
     private fun verificarDuplicadosYCrear(email: String, pass: String, alias: String, dni: String) {
-        db.collection("usuarios").whereEqualTo("dni", dni).get() //Aqui le dices al firebase que busque en esa coleccion y busque y comapre ese campo
-            .addOnSuccessListener { documentosDni -> //VALIDO NO REPETIR DNI
+        db.collection("usuarios").whereEqualTo("dni", dni).get()
+            .addOnSuccessListener { documentosDni ->
                 if (!documentosDni.isEmpty) {
                     Toast.makeText(this, R.string.dni_en_uso, Toast.LENGTH_SHORT).show()
                 } else {
                     db.collection("usuarios").whereEqualTo("email", email).get()
-                        .addOnSuccessListener { documentosEmail -> //VALIDO NO REPETIR EMAIL
+                        .addOnSuccessListener { documentosEmail ->
                             if (!documentosEmail.isEmpty) {
                                 Toast.makeText(this, R.string.email_en_uso, Toast.LENGTH_SHORT).show()
                             } else {
                                 db.collection("alias_publicos").whereEqualTo("alias", alias).get()
-                                    .addOnSuccessListener { documentosAlias -> //VALIDO NO REPETIR ALIAS
+                                    .addOnSuccessListener { documentosAlias ->
                                         if (!documentosAlias.isEmpty) {
                                             Toast.makeText(this, R.string.alias_en_uso, Toast.LENGTH_SHORT).show()
                                         } else {

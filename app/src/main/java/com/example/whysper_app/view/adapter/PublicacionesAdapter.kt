@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.whysper_app.data.model.DenunciaModel
 import com.example.whysper_app.R
 import com.example.whysper_app.data.model.Denuncia
 import com.example.whysper_app.utils.tiempoRelativo

@@ -16,7 +16,6 @@ class ReporteFalsedadActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reporte_falsedad)
 
-        // Recuperar el ID de la denuncia que pasamos desde el Login (o luego desde el Adapter)
         val denunciaIdRecibido = intent.getLongExtra("DENUNCIA_ID", -1L)
 
         val spinner = findViewById<Spinner>(R.id.spinnerMotivo)
@@ -26,11 +25,9 @@ class ReporteFalsedadActivity : AppCompatActivity(){
         val btnVolver = findViewById<ImageButton>(R.id.btnVolverPublicaciones)
 
         btnVolver.setOnClickListener {
-            // Esto te regresa directo al Dashboard/Publicaciones
             finish()
         }
 
-        // Configurar Spinner
         val motivos = arrayOf("Información falsa", "Spam", "Odio o acoso", "Foto engañosa", "Otro")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, motivos)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -62,7 +59,7 @@ class ReporteFalsedadActivity : AppCompatActivity(){
             override fun onResponse(call: Call<ReporteFalsedad>, response: Response<ReporteFalsedad>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@ReporteFalsedadActivity, "Reporte enviado con éxito", Toast.LENGTH_LONG).show()
-                    finish() // Regresa a la pantalla anterior
+                    finish()
                 } else {
                     Toast.makeText(this@ReporteFalsedadActivity, "Error en el servidor: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }

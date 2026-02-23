@@ -81,16 +81,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
     }
     private fun cargarDatosPerfil(uid: String, tvAlias: TextView, tvEmail: TextView) {
-        // 1. Cargamos el Email directamente de Firebase Auth (es lo más seguro y rápido)
         tvEmail.text = auth.currentUser?.email
 
-        // 2. Buscamos el Alias en la colección "alias_publicos" filtrando por usuario_id
         db.collection("alias_publicos")
             .whereEqualTo("usuario_id", uid)
             .get()
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
-                    // Tomamos el primer documento encontrado
                     val document = documents.documents[0]
                     tvAlias.text = document.getString("alias")
                 } else {
@@ -109,7 +106,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 if (!documents.isEmpty) {
                     val docId = documents.documents[0].id
 
-                    // Ahora actualizamos ese documento específico
                     db.collection("alias_publicos").document(docId)
                         .update("alias", nuevo)
                         .addOnSuccessListener {
