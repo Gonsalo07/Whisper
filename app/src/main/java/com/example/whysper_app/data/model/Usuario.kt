@@ -61,6 +61,17 @@ data class Denuncia(
     val evidencias: List<Evidencia>
 )
 
+data class DenunciaUser(
+    val id: Long? = null,
+    val titulo: String,
+    val descripcion: String,
+    val ubicacion: String,
+    val estado: String = "EN_EVALUACION",
+    @SerializedName("creadaEn")
+    val creadaEn: String,
+    val categoriaNombre: String,
+)
+
 // ═══════════════════════════════════════════════════════════════════
 // REPORTE DE FALSEDAD
 // ═══════════════════════════════════════════════════════════════════

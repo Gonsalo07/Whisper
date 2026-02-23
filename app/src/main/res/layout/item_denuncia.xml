@@ -93,13 +93,13 @@
             android:text="Hay un huevo grande en la avenida principal de los angamos, porfavor si alguien podria venir a repararlo, obstruye demasiado el transito y congestiona a las motociletas cacheras de JAJAJA, cabro quien lea esto. solo todo ERICK"
             android:textSize="15sp"/>
 
-        <ImageView
+<!--        <ImageView
             android:id="@+id/ImgCardDenuncia"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_reporte_bache"/>
+            android:src="@drawable/img_reporte_bache"/>-->
 
         <LinearLayout
             android:layout_marginTop="5dp"

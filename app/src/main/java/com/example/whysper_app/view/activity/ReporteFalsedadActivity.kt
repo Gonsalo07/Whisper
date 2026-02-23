@@ -23,7 +23,7 @@ class ReporteFalsedadActivity : AppCompatActivity(){
         val etDescripcion = findViewById<EditText>(R.id.etDescripcionReporte)
         val btnEnviar = findViewById<Button>(R.id.btnEnviarReporte)
 
-        val btnVolver = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnVolverMenuDenuncias)
+        val btnVolver = findViewById<ImageButton>(R.id.btnVolverPublicaciones)
 
         btnVolver.setOnClickListener {
             // Esto te regresa directo al Dashboard/Publicaciones

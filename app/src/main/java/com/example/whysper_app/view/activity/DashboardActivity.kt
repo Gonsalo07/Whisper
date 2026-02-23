@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.whysper_app.R
 import com.example.whysper_app.view.fragment.CrearDenunciaFragment
+import com.example.whysper_app.view.fragment.ProfileFragment
 import com.example.whysper_app.view.fragment.PublicacionesFragment
 
 import com.google.android.material.bottomnavigation.BottomNavigationView

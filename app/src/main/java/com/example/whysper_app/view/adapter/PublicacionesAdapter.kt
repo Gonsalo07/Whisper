@@ -22,18 +22,12 @@ class PublicacionesAdapter(private val listaDenuncias: List<Denuncia>) : Recycle
         val tvCardCreadaEn : TextView = itemView.findViewById(R.id.tvCardCreadaEn)
         val tvCardTitulo : TextView = itemView.findViewById(R.id.tvCardTitulo)
         val tvCardDescripcion : TextView = itemView.findViewById(R.id.tvCardDescripcion)
-        val ImgCardDenuncia : ImageView = itemView.findViewById(R.id.ImgCardDenuncia)
 
         val tvCardDireccion : TextView = itemView.findViewById(R.id.tvCardDireccion)
 
 
         val imgButtonOption : ImageButton = itemView.findViewById(R.id.imgButtonOption)
         val imgButtonLike : ImageButton = itemView.findViewById(R.id.imgButtonLike)
-        val imgButtonComentario : ImageButton = itemView.findViewById(R.id.imgButtonComentario)
-
-        val tvLikes : TextView = itemView.findViewById(R.id.tvLikes)
-        val tvComentarios : TextView = itemView.findViewById(R.id.tvComentarios)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): PublicacionesAdapter.ViewHolder {
@@ -45,15 +39,6 @@ class PublicacionesAdapter(private val listaDenuncias: List<Denuncia>) : Recycle
     override fun onBindViewHolder(holder: PublicacionesAdapter.ViewHolder, position: Int) {
         val item = listaDenuncias[position]
 
-/*        val imagenUrl = item.evidencias.firstOrNull()?.url
-        Glide.with(holder.itemView.context)
-            .load(imagenUrl)
-            .placeholder(R.drawable.img_reporte_bache)
-            .error(R.drawable.img_reporte_bache)
-            .into(holder.ImgCardDenuncia)*/
-
-
-
         holder.tvCardAlias.text = item.aliasId.alias + "#" + item.usuarioId.id
         holder.tvCardCategoria.text = item.categoriaId.nombre
         holder.tvCardCreadaEn.text = tiempoRelativo(item.creadaEn)
@@ -64,6 +49,7 @@ class PublicacionesAdapter(private val listaDenuncias: List<Denuncia>) : Recycle
         holder.imgButtonOption.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ReporteFalsedadActivity::class.java)
+            intent.putExtra("DENUNCIA_ID", item.id)
             context.startActivity(intent)
         }
 

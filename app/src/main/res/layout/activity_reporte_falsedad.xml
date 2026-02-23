@@ -12,12 +12,11 @@
         android:padding="24dp">
 
         <ImageButton
+
             android:id="@+id/btnVolverPublicaciones"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_back"
-            app:tint="@color/primary_color"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon_back"
             android:layout_marginBottom="16dp"/>
 
         <TextView
@@ -91,27 +90,9 @@
             android:text="ENVIAR REPORTE"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:backgroundTint="#D32F2F"
+            android:backgroundTint="#E66666"
+            android:textColor="#fff"
             app:cornerRadius="12dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnVolverMenuDenuncias"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:padding="0dp"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            app:icon="@drawable/icon_arrow_back"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconSize="28dp"
-            app:iconTint="@android:color/white"
-            android:backgroundTint="#00D1A0"
-            app:cornerRadius="28dp"
-            app:elevation="4dp"
-            android:layout_margin="16dp" />
 
     </LinearLayout>
 </ScrollView>

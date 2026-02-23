@@ -1,6 +1,7 @@
-package com.example.whysper_app.view.activity
+package com.example.whysper_app.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -8,9 +9,16 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.whysper_app.R
 import com.example.whysper_app.api.RetrofitClient
 import com.example.whysper_app.data.model.AliasPublicoResponse
+import com.example.whysper_app.data.model.Denuncia
+import com.example.whysper_app.data.model.DenunciaUser
+import com.example.whysper_app.data.network.ApiClient
+import com.example.whysper_app.view.adapter.MisPublicacionesAdapter
+import com.example.whysper_app.view.adapter.PublicacionesAdapter
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -25,8 +33,23 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private lateinit var db: FirebaseFirestore
     private var isEditing = false
 
+
+    private val listaDenuncia = mutableListOf<DenunciaUser>()
+    private lateinit var adapter: MisPublicacionesAdapter
+    private lateinit var recyclerView : RecyclerView
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById(R.id.rvMisDenuncias)
+        adapter = MisPublicacionesAdapter(listaDenuncia)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        listarDenunciasPorUsuario(2)
+
 
         auth = Firebase.auth
         db = Firebase.firestore
@@ -101,7 +124,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
     private fun actualizarEnMySQL(uid: String, nuevo: String, tv: TextView, et: EditText, btn: Button) {
         val datos = mapOf("alias" to nuevo)
-        RetrofitClient.aliasService.actualizarAliasMySQL(uid, datos).enqueue(object : Callback<AliasPublicoResponse> {
+        RetrofitClient.aliasService.actualizarAliasMySQL(uid, datos).enqueue(object :
+            Callback<AliasPublicoResponse> {
             override fun onResponse(call: Call<AliasPublicoResponse>, response: Response<AliasPublicoResponse>) {
                 if (response.isSuccessful) {
                     tv.text = nuevo
@@ -122,5 +146,32 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         tv.visibility = View.VISIBLE
         et.visibility = View.GONE
         btn.visibility = View.GONE
+    }
+
+    private fun listarDenunciasPorUsuario(userID: Long)
+    {
+        ApiClient.apiService.obtenerDenunciasPorUsuario(userID)
+            .enqueue(object : Callback<List<DenunciaUser>> {
+
+                override fun onResponse(
+                    call: Call<List<DenunciaUser>>,
+                    response: Response<List<DenunciaUser>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        response.body()?.let { lista ->
+                            listaDenuncia.clear()
+                            listaDenuncia.addAll(lista)
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<DenunciaUser>>, t: Throwable) {
+                    context?.let { ctx ->
+                        Toast.makeText(ctx, "Error de conexión", Toast.LENGTH_LONG).show()
+                    }
+                }
+            })
     }
 }
