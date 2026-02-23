@@ -60,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
                 etLoginPassword.setSelection(etLoginPassword.text.length)
             }
 
-            //Aqui estoy cambiando a la vista de Registro
             btnGoToRegister.setOnClickListener {
                 finish()
                 val intent = Intent(this, RegisterActivity::class.java)

@@ -26,6 +26,9 @@ interface WhisperApiService {
     @GET("api/denuncia")
     fun obtenerDenuncias(): Call<List<Denuncia>>
 
+    @GET("api/denuncia/user/{id}")
+    fun obtenerDenunciasPorUsuario(@Path( "id") id: Long): Call<List<DenunciaUser>>
+
     @GET("api/denuncia/{id}")
     fun obtenerDenunciaPorId(@Path("id") id: Long): Call<Denuncia>
 
@@ -68,7 +71,6 @@ interface WhisperApiService {
     fun obtenerUsuarioPorEmail(@Path("email") email: String): Call<Usuario>
 }
 
-// Objeto singleton para obtener el servicio
 object ApiClient {
     val apiService: WhisperApiService by lazy {
         RetrofitClient.instance.create(WhisperApiService::class.java)
